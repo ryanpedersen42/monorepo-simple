@@ -12,4 +12,5 @@ workflows:
           mapping: |
             back/.* build-back true
             front/.* build-front true
+            /.* test-var 'string'
           base-revision: origin/back-test
