@@ -17,14 +17,14 @@ jobs:
   run_test_back:
       executor: base
       steps:
-       - echo << parameters.build-back >>
-       - echo << parameters.build-front >>
+       - echo "on the back"
+      #  - echo << parameters.build-front >>
 
   run_test_front: 
       executor: base
       steps:
-       - echo << parameters.build-front >>
-       - echo << parameters.build-back >>
+       - echo "on the front"
+      #  - echo << parameters.build-back >>
 
 workflows:
   build-back:
