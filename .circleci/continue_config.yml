@@ -1,0 +1,47 @@
+version: 2.1
+
+commands:
+  test_params:
+    description: "A simple demo command"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: echo << parameters.to >>
+
+executors:
+  base:
+    docker:
+      - image: cimg/base:stable
+
+parameters:
+  build-back:
+    type: boolean
+    default: false
+  build-front:
+    type: boolean
+    default: false
+
+jobs:
+  - run_test_back:
+      executor: base
+      steps:
+       - echo << parameters.build-back >>
+       - echo << parameters.build-front >>
+
+  - run_test_front: 
+      executor: base
+      steps:
+       - echo << parameters.build-front >>
+       - echo << parameters.build-back >>
+
+workflows:
+  build-back:
+    when: << pipeline.parameters.build-back >>
+    jobs:
+      - run_test_back
+  build-front:
+    when: << pipeline.parameters.build-front >>
+    jobs:
+      - run_test_front
