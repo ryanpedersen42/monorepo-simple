@@ -13,4 +13,4 @@ workflows:
             back/.* build-back true
             front/.* build-front true
           # Optional, defaults to main:
-          base-revision: origin/develop
+#           base-revision: origin/develop
