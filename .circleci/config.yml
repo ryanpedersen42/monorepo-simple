@@ -1,0 +1,16 @@
+version: 2.1
+
+setup: true
+
+orbs:
+  path-filtering: circleci/path-filtering@dev:alpha
+
+workflows:
+  setup-workflow:
+    jobs:
+      - path-filtering/filter:
+          mapping: |
+            back/.* build-back true
+            front/.* build-front true
+          # Optional, defaults to main:
+          base-revision: origin/develop
