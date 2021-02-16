@@ -12,3 +12,4 @@ workflows:
           mapping: |
             back/.* build-back true
             front/.* build-front true
+          base-revision: origin/$CIRCLE_BRANCH
