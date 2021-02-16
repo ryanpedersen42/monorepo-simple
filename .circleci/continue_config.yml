@@ -1,15 +1,5 @@
 version: 2.1
 
-commands:
-  test_params:
-    description: "A simple demo command"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
-    steps:
-      - run: echo << parameters.to >>
-
 executors:
   base:
     docker:
@@ -24,13 +14,13 @@ parameters:
     default: false
 
 jobs:
-  - run_test_back:
+  run_test_back:
       executor: base
       steps:
        - echo << parameters.build-back >>
        - echo << parameters.build-front >>
 
-  - run_test_front: 
+  run_test_front: 
       executor: base
       steps:
        - echo << parameters.build-front >>
