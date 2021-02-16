@@ -20,7 +20,6 @@ jobs:
         - run: 
             command: |
               echo "on the back"
-      #  - echo << parameters.build-front >>
 
   run_test_front: 
       executor: base
@@ -28,7 +27,6 @@ jobs:
         - run: 
             command: |
               echo "on the front"      
-              #  - echo << parameters.build-back >>
 
 workflows:
   build-back:
