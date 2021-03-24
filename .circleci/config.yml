@@ -3,8 +3,8 @@ version: 2.1
 setup: true
 
 orbs:
-  # initial orb
-  path-filtering: circleci/path-filtering@dev:alpha
+  # new orb
+  path-filtering: circleci/path-filtering@0.0.2
 
 workflows:
   setup-workflow:
