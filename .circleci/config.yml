@@ -3,7 +3,7 @@ version: 2.1
 setup: true
 
 orbs:
-  path-filtering: circleci/path-filtering@0.0.1
+  path-filtering: circleci/path-filtering@0.0.2
 
 workflows:
   setup-workflow:
@@ -12,4 +12,4 @@ workflows:
           mapping: |
             back/.* build-back true
             front/.* build-front true
-          base-revision: origin/back-test
+          base-revision: main
