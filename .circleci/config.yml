@@ -26,10 +26,10 @@ jobs:
     steps:
       - checkout
       - path-filtering/set-parameters:
-          base-revision: paths-tags-combo
+          # base-revision: paths-tags-combo
           mapping: |
-            subdir-1/.* true
-            subdir-2/.* true
+            back/.* build-back true
+            front/.* build-front true
       - run:
           name: check json
           command: |
