@@ -2,10 +2,10 @@ version: 2.1
 
 orbs:
   # Note: We are using an older version of hello-build, whereas module A uses the latest
-  back-dir-hello-build: circleci/hello-build@0.0.13
+  back-hello-build: circleci/hello-build@0.0.13
 
 jobs:
-  back-dir-build:
+  back-build:
     docker:
       - image: alpine
     steps:
@@ -13,22 +13,22 @@ jobs:
           to: B
       - run: echo 'Hello, from module B! :3'
 
-  back-dir-postrun:
+  back-postrun:
     docker:
       - image: alpine
     steps:
       - run: echo 'Another job for B! :3'
 
 workflows:
-  back-dir-workflow-x:
+  back-workflow-x:
     jobs:
       - common-pre
-      - back-dir-build:
+      - back-build:
           requires:
             - common-pre
-      - back-dir-postrun:
+      - back-postrun:
           requires:
-            - back-dir-build
-  back-dir-workflow-y:
+            - back-build
+  back-workflow-y:
     jobs:
-      - back-dir-hello-build/hello-build
+      - back-hello-build/hello-build
